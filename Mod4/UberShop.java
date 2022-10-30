@@ -57,8 +57,8 @@ public class UberShop {
         }
 
        return prices;
-    }
-*/
+    } */
+
     public static void main(String[] args) {
 
         UberShop shop = new UberShop();

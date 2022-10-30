@@ -40,6 +40,15 @@ public class ExonNames {
 return false;
     }
 
+    public boolean isInvisibleName(String name){
+if (name.length()>=2){
+    return false;
+}
+
+        return name.length()>= 0;
+
+    }
+
     public static void main(String[] args) {
         ExonNames names = new ExonNames();
 
@@ -56,8 +65,11 @@ return false;
        // String nameCode = names.getNameCode("S");
        // System.out.println("names.getNameCode(\"boRA\") = " + nameCode);
 
-        boolean isMoneyName = names.isMoneyName("31Boss");
-        System.out.println("names.isMoneyName(\"31Boss31\") = " + isMoneyName);
+        //boolean isMoneyName = names.isMoneyName("31Boss");
+        //System.out.println("names.isMoneyName(\"31Boss31\") = " + isMoneyName);
+
+        boolean isInvisible = names.isInvisibleName("\n\n");
+        System.out.println("names.isInvisibleName(\" \") = " + isInvisible);
     }
 
 }
