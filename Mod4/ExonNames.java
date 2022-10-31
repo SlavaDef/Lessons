@@ -41,11 +41,33 @@ return false;
     }
 
     public boolean isInvisibleName(String name){
-if (name.length()>=2){
-    return false;
-}
 
-        return name.length()>= 0;
+
+        return  name.contains("\n") | name.contains("\t") | name.contains(" ") ;
+        //return name.strip().isEmpty(); strip() - java 11 удалит все символы в строке, isEmpty() вернет пустая ли строка
+    }
+
+    public String makeNamePositive(String name){
+          if (name.contains("No")) {
+        return  name.replace("No", "yes");
+
+        }  if (name.contains("NO")){
+              return  name.replace("NO", "yes");
+          } if (name.contains("no")){
+            return  name.replace("no", "yes");
+        }
+            return name;
+
+        /* return name
+                .replace("no", "yes")
+                .replace("No", "yes")
+                .replace("nO", "yes")
+                .replace("NO", "yes"); */
+    }
+
+    public String makeNameClean(String name){
+         return "CLEAR"+name.trim().concat("CLEAR");
+        //return "CLEAN" + name.strip() + "CLEAN";
 
     }
 
@@ -68,8 +90,14 @@ if (name.length()>=2){
         //boolean isMoneyName = names.isMoneyName("31Boss");
         //System.out.println("names.isMoneyName(\"31Boss31\") = " + isMoneyName);
 
-        boolean isInvisible = names.isInvisibleName("\n\n");
-        System.out.println("names.isInvisibleName(\" \") = " + isInvisible);
+       // boolean isInvisible = names.isInvisibleName("hgjhgjh");
+       // System.out.println("names.isInvisibleName(\" \") = " + isInvisible);
+
+       // String positive = names.makeNamePositive("NOMont");
+       // System.out.println("names.makeNamePositive(\"NoMont\") = " + positive);
+
+        String cleanName = names.makeNameClean(" dirty ");
+        System.out.println("names.makeNameClean(\" dirty \") = " + cleanName);
     }
 
 }
