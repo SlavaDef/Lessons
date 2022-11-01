@@ -71,6 +71,11 @@ return false;
 
     }
 
+    public String makeHalfOfName(String name){
+
+        return name.substring(0,name.length()/2);
+    }
+
     public static void main(String[] args) {
         ExonNames names = new ExonNames();
 
@@ -96,8 +101,11 @@ return false;
        // String positive = names.makeNamePositive("NOMont");
        // System.out.println("names.makeNamePositive(\"NoMont\") = " + positive);
 
-        String cleanName = names.makeNameClean(" dirty ");
-        System.out.println("names.makeNameClean(\" dirty \") = " + cleanName);
+        //String cleanName = names.makeNameClean(" dirty ");
+        //System.out.println("names.makeNameClean(\" dirty \") = " + cleanName);
+
+        String halfOfName = names.makeHalfOfName("Gurkt");
+        System.out.println("names.makeHalfOfName(\"Gurk\") = " + names.makeHalfOfName("Gurk"));
     }
 
 }
