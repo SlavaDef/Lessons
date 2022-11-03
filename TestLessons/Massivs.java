@@ -1,10 +1,12 @@
+package TestLessons;
+
 import java.util.Arrays;
 
 public class Massivs {
 
     public static void main(String[] args) {
 
-        int [] arr = new int[4];
+        /* int [] arr = new int[4];
         int [] arri = {7,8,9,10};  // разные способы создания массивов
 
         // System.out.println(arr);
@@ -30,7 +32,22 @@ public class Massivs {
         newArray[6] = 88;
         newArray[7] = 88;
         System.out.println(Arrays.toString(newArray));
-        System.out.println(Arrays.compare(arri, newArray )); // сравнение массивов - равен, больше  или меньше
+        System.out.println(Arrays.compare(arri, newArray )); // сравнение массивов - равен, больше  или меньше */
 
+
+        int[][] arr = new int[4][2];// длинна 4 глубина 2 4 масива по 2 цифры
+
+        arr[0][0] = 0; // масив 1 элемент 1
+        arr[0][1] = 1; // масив 1 элемент 2
+
+        arr[1][0] = 2;
+        arr[1][1] = 3;
+
+        arr[2][0] = 4; // масив 3 элемент 1
+        arr[2][1] = 5; // масив 3 элемент 2
+
+        arr[3][0] = 6;
+        arr[3][1] = 7;
+        System.out.print(Arrays.deepToString(arr)+"\n");// быстрый способ вывода двухмерного массиыва
     }
 }
