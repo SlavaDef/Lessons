@@ -48,6 +48,22 @@ public class Massivs {
 
         arr[3][0] = 6;
         arr[3][1] = 7;
-        System.out.print(Arrays.deepToString(arr)+"\n");// быстрый способ вывода двухмерного массиыва
+        System.out.print(Arrays.deepToString(arr) + "\n");// быстрый способ вывода двухмерного массиыва
+
+        for (int i = 0; i < arr.length; i++) { // проход по первой ячейке масива по 4 масивам
+            for (int j = 0; j < arr[i].length; j++) { // проход по ячейкам масива в масивах
+                System.out.println("[i = " + i + "] [j = "+ j + "] = "+ arr[i][j]);
+
+            }
+
+        }
+
+        System.out.println("");
+
+        for (int[] element : arr){ // проход по массивам
+            for(int inElement : element){ // проход по элементам массива
+                System.out.println(inElement);
+            }
+        }
     }
 }

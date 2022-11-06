@@ -44,28 +44,59 @@ public class UberShop {
         }
     }
 
-   /* public int getMinPriceCount(int[] prices) {
+    public int getMinPriceCount(int[] prices) {
         if (prices.length == 0) {
             return 0;
         }
+           Arrays.sort(prices);
+        int count = 0;
 
-        for(int pr:prices) {
-            if (prices[pr] == prices[pr]) {
+        for(int i = 0; i < prices.length; i++) {
+            if (prices[0] == prices[i]) {
+                count+=1;
 
-                return prices.length;
             }
+            //return count;
         }
 
-       return prices;
-    } */
+       return count;
+    }
+
+    public int[] removePrice(int[] prices, int toRemove){
+
+        int [] newPrise = new int[prices.length];
+
+        for(int i = 0; i<prices.length; i++){
+
+            //if (prices[i]==toRemove){
+              // break;
+          //  }
+
+            if(prices[i]!=toRemove){
+                 newPrise[i]=prices[i];
+
+                 System.out.println(newPrise[i]+" "+ prices[i]);
+                //System.arraycopy(prices,1,newPrise.length-1,newPrise.length-1,1);
+
+            }
+           // return newPrise;
+        }
+
+return newPrise;
+    }
 
     public static void main(String[] args) {
 
         UberShop shop = new UberShop();
 
         //Should be [50, 1500]
-        int[] prices = new int[] {100, 1500, 300, 50, 10, 10, 70};
-        //System.out.println(shop.getMinPriceCount(prices)); //Should be 2
+       // int[] prices = new int[] {100, 1500, 300, 50, 10, 70};
+       // System.out.println(shop.getMinPriceCount(prices)); //Should be 2
+
+        //Should be [150, 200]
+        int[] prices = new int[]{100, 200, 100};
+        int toRemove = 100;
+        System.out.println(Arrays.toString(shop.removePrice(prices, toRemove)));
     }
 }
 
