@@ -68,21 +68,21 @@ public class UberShop {
 
         for(int i = 0; i<prices.length; i++){
 
-            //if (prices[i]==toRemove){
-              // break;
-          //  }
 
-            if(prices[i]!=toRemove){
-                 newPrise[i]=prices[i];
 
-                 System.out.println(newPrise[i]+" "+ prices[i]);
-                //System.arraycopy(prices,1,newPrise.length-1,newPrise.length-1,1);
+              if(prices[i]!=toRemove){
+                return  new int[] {prices[i]};
+
+                // newPrise[i]=prices[i];
+                  // newPrise =  Arrays.copyOf(prices,prices.length);
+                // System.out.println(newPrise[i]+" "+ prices[i]);
+
 
             }
            // return newPrise;
         }
 
-return newPrise;
+return new int[] {};
     }
 
     public static void main(String[] args) {
@@ -94,7 +94,7 @@ return newPrise;
        // System.out.println(shop.getMinPriceCount(prices)); //Should be 2
 
         //Should be [150, 200]
-        int[] prices = new int[]{100, 200, 100};
+        int[] prices = new int[]{500, 200, 100, 200};
         int toRemove = 100;
         System.out.println(Arrays.toString(shop.removePrice(prices, toRemove)));
     }
