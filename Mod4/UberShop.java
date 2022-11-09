@@ -64,26 +64,58 @@ public class UberShop {
 
     public int[] removePrice(int[] prices, int toRemove){
 
-        int [] newPrise = new int[prices.length];
+        /* return Arrays.stream(prices)
+        .filter(number -> number != toRemove)
+        .toArray(); */
 
-        for(int i = 0; i<prices.length; i++){
-
-
-
-              if(prices[i]!=toRemove){
-                return  new int[] {prices[i]};
-
-                // newPrise[i]=prices[i];
-                  // newPrise =  Arrays.copyOf(prices,prices.length);
-                // System.out.println(newPrise[i]+" "+ prices[i]);
-
-
+        int toRemoveCount = 0; // счетчик
+        for(int price: prices) { // для каждого элемента в массиве prices
+            if (price == toRemove) { // если цена равняеться удалеемой (искомой) цене !!!
+                toRemoveCount++; // счетчик увеличиваем на 1
             }
-           // return newPrise;
         }
 
-return new int[] {};
+        int[] result = new int[prices.length - toRemoveCount]; // новый массив с длинной в (длинна масива - счетчик)
+        int index = 0; // переменная счетчик 2
+        for(int price: prices) { // для каждого элемента в массиве prices
+            if (price != toRemove) { // если элимент не равен искоемуму
+                result[index] = price; // новый масив с индексом счетчика получает значение етого price
+                index++;
+            }
+        }
+
+        return result; // вернуть новый массив
+
+
     }
+
+    public int[] leavePrice9(int[] prices){
+
+        /* return Arrays.stream(prices)
+                .filter(number -> number%10==9)
+                .toArray(); */
+
+// узнаем длинну нового массива
+
+        int count = 0; // счетчик
+        for(int priсe : prices){ // для каждого элемента в массиве prices
+            if(priсe%10==9){ // если цена при остатке от деления на 10 не равна 9 !!!
+                count++; // счетчик увеличиваем на 1
+            }
+        }
+int[] priceWithNine = new int[count]; // новый массив с длинной в (длинна вход масива - счетчик)
+        int index = 0; // переменная счетчик 2
+
+        for(int priсe : prices){ // для каждого элемента в массиве prices
+            if(priсe%10==9){ // если цена при остатке от деления на 10 равна 9
+                priceWithNine[index]  = priсe; // // новый масив с индексом счетчика получает значение етого price
+                index++;
+            }
+        }
+       return priceWithNine;
+    }
+
+
 
     public static void main(String[] args) {
 
@@ -94,9 +126,14 @@ return new int[] {};
        // System.out.println(shop.getMinPriceCount(prices)); //Should be 2
 
         //Should be [150, 200]
-        int[] prices = new int[]{500, 200, 100, 200};
-        int toRemove = 100;
-        System.out.println(Arrays.toString(shop.removePrice(prices, toRemove)));
+        //int[] prices = new int[]{500, 200, 100, 200, 100};
+        //int toRemove = 100;
+        //System.out.println(Arrays.toString(shop.removePrice(prices, toRemove)));
+
+        int[] prices = new int[] {399, 1599, 399, 50, 10, 10, 70};
+        System.out.println(Arrays.toString(shop.leavePrice9(prices)));
+
+
     }
 }
 
