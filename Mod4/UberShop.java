@@ -114,7 +114,24 @@ int[] priceWithNine = new int[count]; // новый массив с длинно
         }
        return priceWithNine;
     }
+    public String[] mergeStocks(String[] showcaseStocks, String[] warehouseStocks){
 
+        String[] stocks = new String[showcaseStocks.length + warehouseStocks.length];
+
+int index = 0;
+
+for ( String stock : showcaseStocks){
+    stocks[index] = stock;
+    index++;
+}
+int indexTwo = showcaseStocks.length;
+        for ( String stock : warehouseStocks){
+            stocks[indexTwo] = stock;
+            indexTwo++;
+        }
+
+        return stocks;
+    }
 
 
     public static void main(String[] args) {
@@ -130,8 +147,13 @@ int[] priceWithNine = new int[count]; // новый массив с длинно
         //int toRemove = 100;
         //System.out.println(Arrays.toString(shop.removePrice(prices, toRemove)));
 
-        int[] prices = new int[] {399, 1599, 399, 50, 10, 10, 70};
-        System.out.println(Arrays.toString(shop.leavePrice9(prices)));
+      //  int[] prices = new int[] {399, 1599, 399, 50, 10, 10, 70};
+       // System.out.println(Arrays.toString(shop.leavePrice9(prices)));
+
+        //Final result should be ["gun", "firebow", "firegun"]
+        String[] showcaseStocks = new String[] {"gun", "firebow","jjfdfd","hhjdfjkd"};
+        String[] warehouseStocks = new String[] {"firegun","hfhdf"};
+        System.out.println(Arrays.toString(shop.mergeStocks(showcaseStocks, warehouseStocks)));
 
 
     }
