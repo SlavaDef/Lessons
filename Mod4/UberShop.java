@@ -133,6 +133,21 @@ int indexTwo = showcaseStocks.length;
         return stocks;
     }
 
+    public int getPricesSum(int[] prices, int minPrice, int maxPrice){
+
+        int count= 0;
+
+        for(int i = 0; i<prices.length; i++){
+            if(prices[i]>=minPrice && prices[i]<=maxPrice){
+
+                count+= prices[i];
+                //System.out.print(prices[i]+" ");
+            }
+        }
+
+        return count;
+    }
+
 
     public static void main(String[] args) {
 
@@ -151,11 +166,12 @@ int indexTwo = showcaseStocks.length;
        // System.out.println(Arrays.toString(shop.leavePrice9(prices)));
 
         //Final result should be ["gun", "firebow", "firegun"]
-        String[] showcaseStocks = new String[] {"gun", "firebow","jjfdfd","hhjdfjkd"};
-        String[] warehouseStocks = new String[] {"firegun","hfhdf"};
-        System.out.println(Arrays.toString(shop.mergeStocks(showcaseStocks, warehouseStocks)));
+       // String[] showcaseStocks = new String[] {"gun", "firebow","jjfdfd","hhjdfjkd"};
+       // String[] warehouseStocks = new String[] {"firegun","hfhdf"};
+       //System.out.println(Arrays.toString(shop.mergeStocks(showcaseStocks, warehouseStocks)));
 
-
+        int[] prices = new int[] {10, 20, 50, 40, 34, 500};
+        System.out.println(shop.getPricesSum(prices, 20, 50));
     }
 }
 
