@@ -12,7 +12,7 @@ public class TestStringa {
         //int number1 = Integer.parseInt(parts[0]);
         int number2 = Integer.parseInt(parts[1]);
         System.out.println(parts[0]);
-        System.out.println(parts[1]);*/
+        System.out.println(parts[1]); */
 int numb = 347;
 Integer nub = 555;
 //int res1 = numb%10; // получим последнее число
@@ -24,7 +24,7 @@ int res = (numb%10)+((numb/10)%10)+(numb/100) ;    // для трехзначн�
 
        // System.out.print(text.length());
 
-        System.out.print(108%200);
+        System.out.print(50%10);
 
     }
 }

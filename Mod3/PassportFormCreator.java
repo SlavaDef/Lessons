@@ -1,3 +1,5 @@
+package Mod3;
+
 import java.util.Scanner;
 
 public class PassportFormCreator {
