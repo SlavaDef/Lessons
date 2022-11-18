@@ -24,7 +24,7 @@ int res = (numb%10)+((numb/10)%10)+(numb/100) ;    // для трехзначн�
 
        // System.out.print(text.length());
 
-        System.out.print(50%10);
+        System.out.print(49%2);
 
     }
 }
