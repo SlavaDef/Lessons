@@ -15,6 +15,10 @@ public class TestStringa {
         System.out.println(parts[1]); */
 int numb = 347;
 Integer nub = 555;
+double a = 2.0;
+double b = 3.0;
+int x = 5;
+int y = 2;
 //int res1 = numb%10; // получим последнее число
 //int res2 = (numb/10)%10; // второе
 //int res3 = numb/100; // первое
@@ -24,7 +28,9 @@ int res = (numb%10)+((numb/10)%10)+(numb/100) ;    // для трехзначн�
 
        // System.out.print(text.length());
 
-        System.out.print(49%2);
+        //System.out.print(49%2);
+        System.out.print(Math.pow(x,y));
+
 
     }
 }

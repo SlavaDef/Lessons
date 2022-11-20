@@ -2,7 +2,7 @@ package Mod6;
 
 public class BlocksOfInizialize {
 
-   static  {
+   static  { // данный блок выполниться первым до конструктора при создании обьекта
         System.out.println("Static - first block in my  code!");
     }
 
@@ -21,7 +21,7 @@ public class BlocksOfInizialize {
 
 class Blocks extends BlocksOfInizialize{
 
-    static  {
+    static  { // данный блок выполниться вторым до конструктора при создании обьекта тут клас наследник
         System.out.println("Static - second block in my  code!");
     }
 
