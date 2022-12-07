@@ -1,5 +1,7 @@
 package Mod4;
 
+import java.util.Arrays;
+
 public class TestStringa {
 
     public static void main(String[] args) {
@@ -29,7 +31,11 @@ int res = (numb%10)+((numb/10)%10)+(numb/100) ;    // для трехзначн�
        // System.out.print(text.length());
 
         //System.out.print(49%2);
-        System.out.print(Math.pow(x,y));
+        //System.out.print(Math.pow(x,y));
+String word = "Ge74 N5sa Izew7 Fbi5lo";
+        String [] words = word.split( " ");
+                System.out.println(Arrays.toString(words)+" "+ words.length);
+        //System.out.println(words[5].equals(words[14]));
 
 
     }
