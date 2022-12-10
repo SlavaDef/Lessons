@@ -34,8 +34,9 @@ int res = (numb%10)+((numb/10)%10)+(numb/100) ;    // для трехзначн�
         //System.out.print(Math.pow(x,y));
 String word = "Ge74 N5sa Izew7 Fbi5lo";
         String [] words = word.split( " ");
-                System.out.println(Arrays.toString(words)+" "+ words.length);
-        //System.out.println(words[5].equals(words[14]));
+               // System.out.println(Arrays.toString(words)+" "+ words.length);//System.out.println(text.length);(words[5].equals(words[14]));
+double g = 6.0/4;
+        System.out.println(g);
 
 
     }
