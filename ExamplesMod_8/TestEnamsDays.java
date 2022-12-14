@@ -2,6 +2,9 @@ package ExamplesMod_8;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.EnumMap;
+import java.util.EnumSet;
+import java.util.List;
 
 public class TestEnamsDays {
 
@@ -36,8 +39,21 @@ public class TestEnamsDays {
         String g = day2.whotDay(); // вызов метода запихнули в переменную
 
         System.out.println(g); // вывели
+        day2.printi();
+                                                           // !!!!!!
+        EnumSet<DaysOfWeeks> setEnum = EnumSet.allOf(DaysOfWeeks.class); // создали множиство и засунули туда все енами
+System.out.println(setEnum); // вывели нашу колекцию Енамов
 
+// Map - DaysOfWeeks ключ, List<String> -  значения    + DaysOfWeeks.class указываем какой клас используем
+        EnumMap < DaysOfWeeks, List<String> > dayPlans = new EnumMap<>(DaysOfWeeks.class);
 
+// dayPlans планы на день
+
+// ложим в словарь планы на определенный день (планы листом)
+        dayPlans.put(DaysOfWeeks.MONDAY,Arrays.asList("Go to hospital", "Take a shower", "Go to shop"));
+        dayPlans.put(DaysOfWeeks.SANDAY,Arrays.asList("Go to the garadge", "Take a shower", "Stolen new car."));
+
+        System.out.println(dayPlans); // увидем планы на два дня
 
     }
 

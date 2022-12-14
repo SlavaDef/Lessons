@@ -1,5 +1,7 @@
 package ExamplesMod_8;
 
+// используем энам чтобы обьеденить по типу констант дни недели месеца, статусы, сезоны....
+
 public enum DaysOfWeeks {
 
     SANDAY("Неділя",1)  // у кожному єнаму реалізуємо абстракт метод + геттер транслейт
@@ -52,8 +54,10 @@ public enum DaysOfWeeks {
                     return "Today is a free day!!! " + getTranslate();
                 }
 
-            };
 
+
+
+};
     // добавляємо поля в Enam
 
     private String translate; // в даннов случае переклад
@@ -81,4 +85,10 @@ public enum DaysOfWeeks {
 
 
     public abstract String whotDay(); // абстракт метод теперь его должен реализовать каждый енам
+
+    public void printi(){
+
+        System.out.println("Enum finished!");
+    }
+
 }
