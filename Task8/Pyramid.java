@@ -8,6 +8,6 @@ public class Pyramid extends Shape{
 
     @Override
     public void sayName(Shape shape) {
-        shape.printName();
+
     }
 }
