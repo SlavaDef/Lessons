@@ -1,8 +1,8 @@
 package Task8;
 
-public class PrintMyShape implements Printable{
-    @Override
-    public void sayName(Shape shape) {
+public final class PrintMyShape {
+
+    public static void sayName(Shape shape) {
         shape.printName();
     }
 }

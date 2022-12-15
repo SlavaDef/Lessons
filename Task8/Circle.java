@@ -6,4 +6,9 @@ public class Circle extends Shape{
     void printName() {
         System.out.println("Hello my name is Circle");
     }
+
+    @Override
+    public void sayName(Shape shape) {
+        shape.printName();
+    }
 }

@@ -5,4 +5,9 @@ public class Quad extends Shape {
     void printName() {
         System.out.println("Hello my name is Quad");
     }
+
+    @Override
+    public void sayName(Shape shape) {
+        shape.printName();
+    }
 }
