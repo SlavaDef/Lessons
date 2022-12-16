@@ -23,8 +23,8 @@ public class TestShapes {
         shapes.add(new Pyramid("Piramid", 5, "Піраміда", "yellow"));
 
 
-        for (Shape shape1 : shapes) {
-            shape1.sayName();
+        for (Shape shape : shapes) {
+            PrintMyShape.sayName(shape);
         }
 
         System.out.println(Arrays.asList(shapes));
