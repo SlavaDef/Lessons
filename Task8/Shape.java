@@ -1,8 +1,9 @@
 package Task8;
 
-abstract class Shape implements Printable{
+abstract class Shape implements Printable {
 
     abstract String printName();
+
     abstract String shapeInfo();
 
     protected String name;

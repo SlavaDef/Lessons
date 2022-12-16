@@ -1,6 +1,6 @@
 package Task8;
 
-public class Pyramid extends Shape{
+public class Pyramid extends Shape {
 
     private String translation;
     private int corners;
@@ -11,16 +11,19 @@ public class Pyramid extends Shape{
         this.translation = translation;
         this.color = color;
     }
+
     @Override
     String printName() {
         return this.name;
     }
+
     @Override
     String shapeInfo() {
-        return "Number of corners is " + corners+ ", translation - " + translation;
+        return "Number of corners is " + corners + ", translation - " + translation;
     }
+
     @Override
     public void sayName() {
-        System.out.println("Hello my name is " + printName() + ". "+ shapeInfo());
+        System.out.println("Hello my name is " + printName() + ". " + shapeInfo());
     }
 }

@@ -5,5 +5,4 @@ public interface Printable {
     void sayName();
 
 
-
 }
