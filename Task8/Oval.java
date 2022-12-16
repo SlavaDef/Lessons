@@ -2,8 +2,6 @@ package Task8;
 
 public class Oval extends Shape{
 
-private String color;
-
     Oval(String name, String color) {
       this.name = name;
       this.color = color;

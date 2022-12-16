@@ -6,10 +6,10 @@ abstract class Shape implements Printable{
     abstract String shapeInfo();
 
     protected String name;
-    protected int corners;
+    protected String color;
 
     @Override
     public String toString() {
-        return "The name of this shape is " + name + "corners = " + corners;
+        return "The name of this shape is " + name + ", color = " + color;
     }
 }

@@ -7,18 +7,18 @@ public class TestShapes {
     public static void main(String[] args) {
 
         new Circle("Circle", 0, "Red").sayName();
-        new Quad("Quad",4, 22).sayName();
+        new Quad("Quad",4, 22,"black").sayName();
         new Cylinder("Cylinder",4,"Green").sayName();
         new Oval("Oval", "white").sayName();
-        new Pyramid("Piramid", 5,"Піраміда").sayName();
+        new Pyramid("Piramid", 5,"Піраміда","yellow").sayName();
 
         ArrayList<Shape > shape = new ArrayList<>();
 
         shape.add(new Cylinder("Cylinder",4,"Green" ));
-        shape.add(new  Quad("Quad",4, 22));
+        shape.add(new  Quad("Quad",4, 22,"black"));
         shape.add( new Circle("Circle",0, "Red"));
         shape.add( new Oval("Oval","white"));
-        shape.add(new Pyramid("Piramid", 5,"Піраміда" ));
+        shape.add(new Pyramid("Piramid", 5,"Піраміда","yellow" ));
 
 
         for (Shape shape1 : shape){

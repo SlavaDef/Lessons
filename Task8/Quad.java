@@ -3,11 +3,13 @@ package Task8;
 public class Quad extends Shape {
 
     private int size;
+    private int corners;
 
-    Quad(String name, int corners, int size) {
+    Quad(String name, int corners, int size, String color) {
         this.name = name;
         this.corners = corners;
         this.size = size;
+        this.color = color;
     }
     @Override
     String printName() {

@@ -1,7 +1,8 @@
 package Task8;
 
 public class Circle extends Shape{
-    private String color;
+
+    private int corners;
     Circle(String name, int corners, String color) {
         this.name=name;
         this.corners = corners;

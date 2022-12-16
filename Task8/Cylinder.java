@@ -2,7 +2,7 @@ package Task8;
 
 public class Cylinder extends Shape{
 
-    private String color;
+    private int corners;
 
     Cylinder(String name, int corners, String color) {
         this.name = name;
