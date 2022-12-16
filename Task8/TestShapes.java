@@ -16,9 +16,9 @@ public class TestShapes {
         System.out.println("=======================================================================");
         ArrayList<Shape> shapes = new ArrayList<>();
 
-        shapes.add(new Cylinder("Cylinder", 4, "Green"));
+        shapes.add(new Cylinder("Cylinder", 4f, "Green"));
         shapes.add(new Quad("Quad", 4, 22, "black"));
-        shapes.add(new Circle("Circle", 0, "Red"));
+        shapes.add(new Circle("Circle", 45.7f, "Red"));
         shapes.add(new Oval("Oval", "white"));
         shapes.add(new Pyramid("Piramid", 5, "Піраміда", "yellow"));
 
