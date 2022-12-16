@@ -12,16 +12,16 @@ public class TestShapes {
         new Oval("Oval", "white").sayName();
         new Pyramid("Piramid", 5,"Піраміда","yellow").sayName();
 
-        ArrayList<Shape > shape = new ArrayList<>();
+        ArrayList<Shape > shapes = new ArrayList<>();
 
-        shape.add(new Cylinder("Cylinder",4,"Green" ));
-        shape.add(new  Quad("Quad",4, 22,"black"));
-        shape.add( new Circle("Circle",0, "Red"));
-        shape.add( new Oval("Oval","white"));
-        shape.add(new Pyramid("Piramid", 5,"Піраміда","yellow" ));
+        shapes.add(new Cylinder("Cylinder",4,"Green" ));
+        shapes.add(new  Quad("Quad",4, 22,"black"));
+        shapes.add( new Circle("Circle",0, "Red"));
+        shapes.add( new Oval("Oval","white"));
+        shapes.add(new Pyramid("Piramid", 5,"Піраміда","yellow" ));
 
 
-        for (Shape shape1 : shape){
+        for (Shape shape1 : shapes){
             shape1.sayName();
         }
 
@@ -30,6 +30,6 @@ public class TestShapes {
          //   System.out.println(shape.get(i));
       //  }
 
-        System.out.println(Arrays.asList(shape));
+        System.out.println(Arrays.asList(shapes));
     }
 }
