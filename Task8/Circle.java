@@ -2,13 +2,27 @@ package Task8;
 
 public class Circle extends Shape{
 
-    @Override
-    void printName() {
-        System.out.println("Hello my name is Circle");
+    private String color;
+
+    Circle(String name, int corners, String color) {
+        this.name=name;
+        this.corners = corners;
+        this.color = color;
+
     }
 
     @Override
-    public void sayName(Shape shape) {
+    String printName() {
+        return this.name;
+    }
 
+    @Override
+    String shapeInfo() {
+        return "Circle havent corners, so we have "+ corners +". My color is "+ color;
+    }
+
+    @Override
+    public void sayName() {
+        System.out.println("Hello my name is " + printName() + ". "+ shapeInfo());
     }
 }

@@ -1,13 +1,28 @@
 package Task8;
 
 public class Cylinder extends Shape{
+
+    private String color;
+
+    Cylinder(String name, int corners, String color) {
+        this.name = name;
+        this.corners = corners;
+        this.color = color;
+
+    }
     @Override
-    void printName() {
-        System.out.println("Hello my name is Cylinder");
+   String printName() {
+
+        return this.name;
     }
 
     @Override
-    public void sayName(Shape shape) {
+    String shapeInfo() {
+        return "i dont know if i have "+corners + " corners, my color is " + color;
+    }
 
+    @Override
+    public void sayName() {
+        System.out.println("Hello my name is " + printName() + " " + shapeInfo() );
     }
 }
