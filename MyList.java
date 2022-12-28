@@ -1,10 +1,15 @@
 package Task09;
 
-public interface MyList {
+public interface MyList<E> {
 
-     void size();
+     int size();
 
-      void isEmty();
+      void clear();
 
-    void  add(Object e);
+  //  E remove(int index);
+
+     int get(int index);
+
+
+   void add(E e);
 }

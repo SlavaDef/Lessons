@@ -5,30 +5,50 @@ import Task9.MyArray;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MyArrayList<E> implements MyList{
+public class MyArrayList<E> implements MyList<E>{
 
     private int COPASITY = 2;
 
+
     Object [] objects = new Object[COPASITY];
 
-    private int currentLight = 0;
 
-    public void add(Object  element){
+    private int currentSize = 0;
 
-        if(objects.length >= COPASITY){
-            COPASITY*=2;
-        }
+    MyArrayList(int COPASITY){
+        this.COPASITY = COPASITY;
+    }
 
-        objects[currentLight] = element;
-        objects = Arrays.copyOf(objects,currentLight+2);
-        currentLight++;
+    MyArrayList(){
 
     }
 
-    // 1 - что копируем, 2 - с какой позиции, 3 - куда копируем, 4 - с какого индекса записывать,
-    // 5 кол во элементов которые копируем
+    public void add(E element){
+
+
+        if(objects.length >= COPASITY){
+            COPASITY*=2;
+            //  System.arraycopy(objects,currentSize,objects,currentSize,1);
+        }
+
+        objects[currentSize] = element;
+        objects = Arrays.copyOf(objects,currentSize+2);
+
+        currentSize++;
+
+    }
 
     @Override
+    public int get(int index) {
+
+        if(index<0| index>=objects.length){
+           throw new IndexOutOfBoundsException();
+        }
+
+        return (int) objects[index];
+    }
+
+      @Override
     public String toString() {
 
         return
@@ -36,47 +56,61 @@ public class MyArrayList<E> implements MyList{
 
     }
 
-
     @Override
-    public void size() {
+  public int size() {
+return objects.length-1;
 
     }
 
     @Override
-    public void isEmty() {
-
+    public void clear() {
+        for(int i = 0; i<objects.length;i++){
+            objects[i] = null;
+        }
+        COPASITY = 0;
     }
 
    /* @Override
-    public void add(Object e) {
+    public E remove(int index) {
+
+       return objects[index] = null;
+
+       // for(int i =0; i<objects.length; i++){
+
+       // }
 
     } */
-   public static void main(String[] args) {
 
-       MyArrayList <Integer> myArray =  new MyArrayList();
+
+    public static void main(String[] args) {
+
+       MyList <Integer> myArray =  new MyArrayList();
        myArray.add(7);
        myArray.add(8);
        myArray.add(9);
-       myArray.add("Hello");
-       myArray.add("Word");
-       myArray.add('r');
-       myArray.add(0.22f);
-       myArray.add(5555888l);
-       myArray.add(345.44);
-       myArray.add(45);
+       // myArray.add("Hello");
+      // myArray.add("Word");
+      // myArray.add('r');
+      // myArray.add(0.22f);
+      // myArray.add(5555888l);
+      // myArray.add(345.44);
+      // myArray.add(45);
+
+
 
 
        System.out.println(myArray.toString());
 
-       // вивід, тут буду думати що робити з нулем в кінці...
-// Array = [7, 8, 9, Hello, Word, r, 0.22, 5555888, 345.44, 45, null]
+       System.out.println(myArray.get(2));
+       System.out.println(myArray.get(0));
+      // System.out.println(myArray.get(3));
+       System.out.println(myArray.size());
+       myArray.clear();
+        System.out.println(myArray.size());
+        System.out.println(myArray.toString());
 
-      MyArrayList<Integer> list = new MyArrayList<>();
-      list.add("D");
 
-      ArrayList<String> arrayList = new ArrayList<>();
 
-       arrayList.add("8");
 
 
    }
