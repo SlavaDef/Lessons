@@ -2,14 +2,14 @@ package Task09;
 
 public interface MyList<E> {
 
-     int size();
+    int size();
 
-      void clear();
+    void clear();
 
-  //  E remove(int index);
+    void remove(int index);
 
-     int get(int index);
+    E get(int index);
 
 
-   void add(E e);
+    void add(E e);
 }

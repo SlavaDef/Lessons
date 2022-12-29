@@ -1,54 +1,52 @@
 package Task09;
 
-import Task9.MyArray;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MyArrayList<E> implements MyList<E>{
+public class MyArrayList<E> implements MyList<E> {
 
     private int COPASITY = 2;
 
 
-    Object [] objects = new Object[COPASITY];
+    Object[] objects = new Object[COPASITY];
 
 
     private int currentSize = 0;
 
-    MyArrayList(int COPASITY){
+    MyArrayList(int COPASITY) {
         this.COPASITY = COPASITY;
     }
 
-    MyArrayList(){
+    MyArrayList() {
 
     }
 
-    public void add(E element){
+    public void add(E element) {
 
 
-        if(objects.length >= COPASITY){
-            COPASITY*=2;
-            //  System.arraycopy(objects,currentSize,objects,currentSize,1);
+        if (objects.length >= COPASITY) {
+            COPASITY *= 2;
+            //System.arraycopy(objects,0,objects,currentSize,objects.length-1);
         }
 
         objects[currentSize] = element;
-        objects = Arrays.copyOf(objects,currentSize+2);
 
+        objects = Arrays.copyOf(objects, currentSize + 2);
         currentSize++;
+
 
     }
 
     @Override
-    public int get(int index) {
+    public E get(int index) {
 
-        if(index<0| index>=objects.length){
-           throw new IndexOutOfBoundsException();
+        if (index < 0 | index >= objects.length) {
+            throw new IndexOutOfBoundsException();
         }
 
-        return (int) objects[index];
+        return (E) objects[index];
     }
 
-      @Override
+    @Override
     public String toString() {
 
         return
@@ -57,62 +55,38 @@ public class MyArrayList<E> implements MyList<E>{
     }
 
     @Override
-  public int size() {
-return objects.length-1;
+    public int size() {
+        return currentSize;
 
     }
 
     @Override
     public void clear() {
-        for(int i = 0; i<objects.length;i++){
+        for (int i = 0; i < objects.length; i++) {
             objects[i] = null;
+
         }
-        COPASITY = 0;
+        currentSize = 0;
     }
 
-   /* @Override
-    public E remove(int index) {
+    @Override
+    public void remove(int index) {
 
-       return objects[index] = null;
+        if (index < 0 | index >= objects.length) {
+            throw new IndexOutOfBoundsException();
+        }
 
-       // for(int i =0; i<objects.length; i++){
+        System.arraycopy(objects, index + 1, objects, index, objects.length - index - 1);
+        objects[currentSize - 1] = null;
+        currentSize--;
 
-       // }
-
-    } */
-
-
-    public static void main(String[] args) {
-
-       MyList <Integer> myArray =  new MyArrayList();
-       myArray.add(7);
-       myArray.add(8);
-       myArray.add(9);
-       // myArray.add("Hello");
-      // myArray.add("Word");
-      // myArray.add('r');
-      // myArray.add(0.22f);
-      // myArray.add(5555888l);
-      // myArray.add(345.44);
-      // myArray.add(45);
-
-
-
-
-       System.out.println(myArray.toString());
-
-       System.out.println(myArray.get(2));
-       System.out.println(myArray.get(0));
-      // System.out.println(myArray.get(3));
-       System.out.println(myArray.size());
-       myArray.clear();
-        System.out.println(myArray.size());
-        System.out.println(myArray.toString());
-
-
-
-
-
-   }
-
+    }
 }
+     /*
+    Params:
+src – the source array.
+srcPos – starting position in the source array.
+dest – the destination array.
+destPos – starting position in the destination data.
+length – the number of array elements to be copied.
+     */
