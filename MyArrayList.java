@@ -3,7 +3,7 @@ package Task09;
 import java.util.Arrays;
 
 public class MyArrayList<E> implements MyList<E> {
-    private int COPASITY = 2;
+    private int COPASITY = 10;
     Object[] objects = new Object[COPASITY];
     private int currentSize = 0;
 
@@ -17,7 +17,6 @@ public class MyArrayList<E> implements MyList<E> {
     public void add(E element) {
         if (objects.length >= COPASITY) {
             COPASITY *= 2;
-            //System.arraycopy(objects,0,objects,currentSize,objects.length-1);
         }
         objects[currentSize] = element;
         objects = Arrays.copyOf(objects, currentSize + 2);
@@ -27,7 +26,7 @@ public class MyArrayList<E> implements MyList<E> {
 
     @Override
     public E get(int index) {
-        if (index < 0 | index >= objects.length) {
+        if (index < 0 || index >= objects.length) {
             throw new IndexOutOfBoundsException();
         }
         return (E) objects[index];
@@ -35,8 +34,7 @@ public class MyArrayList<E> implements MyList<E> {
 
     @Override
     public String toString() {
-        return
-                "Array = " + Arrays.toString(objects);
+        return "Array = " + Arrays.toString(objects);
     }
 
     @Override
@@ -46,21 +44,22 @@ public class MyArrayList<E> implements MyList<E> {
 
     @Override
     public void clear() {
+        Object[] clearObj = objects;
         for (int i = 0; i < objects.length; i++) {
-            objects[i] = null;
-
+            clearObj[i] = null;
         }
         currentSize = 0;
     }
 
     @Override
-    public void remove(int index) {
-        if (index < 0 | index >= objects.length) {
+    public E remove(int index) {
+        if (index < 0 || index >= objects.length) {
             throw new IndexOutOfBoundsException();
         }
         System.arraycopy(objects, index + 1, objects, index, objects.length - index - 1);
         objects[currentSize - 1] = null;
         currentSize--;
+        return (E) objects[index];
     }
 }
 
