@@ -1,47 +1,56 @@
 package Task09;
 
 
-public class MyStack <T>{
+import java.util.Objects;
 
-    private Node head;
+public class MyStack<T> {
+
+    private Node<T> head;
+    private Node<T> last;
     private int size;
 
     void push(T value) {
-        Node newNode = new Node<>(value);
-        Node currentNode = head;
+        Node<T> newNode = new Node<>(value);
 
         if (head == null) {
             head = newNode;
+            last = newNode;
         } else {
-            while (currentNode.getNext() != null) {
-                currentNode = currentNode.getNext();
-            }
-            currentNode.setNext(new Node<>(value));
+            last.next = newNode;
+            last = newNode;
         }
         size++;
     }
 
     T remove(int index) {
 
+        Objects.checkIndex(index, size);
+        T removeElement;
         if (index == 0) {
-            head = head.getNext();
-            size--;
-            return (T) head;
-        }
-        int currentIndex = 0;
-        Node temp = head;
-        while (temp != null) {
-            if (currentIndex == index - 1) {
-                temp.setNext(temp.getNext().getNext());
-                size--;
-                return (T) temp;
-            } else {
-                temp = temp.getNext();
-                currentIndex++;
+            removeElement = head.element;
+            head = head.next;
+            if (head == null) {
+                last = null;
             }
-
+        } else {
+            Node<T> prev = getNodeByInd(index - 1);
+            removeElement = prev.next.element;
+            prev.next = prev.next.next;
+            if (index == size - 1) {
+                last = prev;
+            }
         }
-        throw new IllegalArgumentException();
+        size--;
+        return removeElement;
+
+    }
+
+    private Node<T> getNodeByInd(int index) {
+        Node<T> res = head;
+        for (int i = 0; i < index; i++) {
+            res = res.next;
+        }
+        return res;
     }
 
     int size() {
@@ -50,6 +59,7 @@ public class MyStack <T>{
 
     void clear() {
         head = null;
+        last = null;
         size = 0;
     }
 
@@ -57,44 +67,29 @@ public class MyStack <T>{
         if (head == null) {
             throw new Exception("Empty Stack");
         }
-
-        return (T) head.getElement();
-
+        return (T) last;
     }
 
     public T pop() throws Exception {
         if (head == null) {
             throw new Exception("Empty Stack");
         }
-        Node temp = head;
-        head = head.getNext();
+        T removeElement;
+        removeElement = last.element;
+        last = getNodeByInd(size - 1);
+
         size--;
-        return (T) temp.getElement();
+        return removeElement;
     }
 
-    private static class Node<T> {
+   private static class Node<T> {
 
-        private T element;
-        private Node<T> next;
+        T element;
+        Node<T> next;
 
         public Node(T element) {
             this.element = element;
         }
 
-        public T getElement() {
-            return element;
-        }
-
-        public void setElement(T element) {
-            this.element = element;
-        }
-
-        public Node<T> getNext() {
-            return next;
-        }
-
-        public void setNext(Node<T> next) {
-            this.next = next;
-        }
     }
 }
