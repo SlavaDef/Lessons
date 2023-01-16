@@ -67,7 +67,7 @@ public class MyStack<T> {
         if (head == null) {
             throw new Exception("Empty Stack");
         }
-        return (T) last;
+        return (T) last.element;
     }
 
     public T pop() throws Exception {
