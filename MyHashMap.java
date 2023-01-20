@@ -36,7 +36,6 @@ public class MyHashMap <K,V>{
         }
     }
 
-
     public void clear(){
         array = (Node<K, V>[]) new Node[COMPASITY];
         size = 0;
@@ -44,6 +43,7 @@ public class MyHashMap <K,V>{
     public int size(){
         return size;
     }
+
     public void remove(K key){
         for(int i = 0; i < array.length; i++){
             if(array[i] != null && array[i].key == key){
@@ -87,7 +87,6 @@ class Node <K,V>{
     K key;
     V value;
     Node<K,V> next;
-
     public Node(int hash,K key, V value){
         this.hashPozition = hash;
         this.key = key;
