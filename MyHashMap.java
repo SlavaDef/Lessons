@@ -22,7 +22,7 @@ public class MyHashMap <K,V>{
         }if(array[index].equals(list)){
             array[index].value = value;
         }else{
-            Node<K,V> temp = array[index].next;
+            Node<K,V> temp = array[index];
             while(temp.next != null){
                 if(temp.key == key){
                     temp.value = value;
@@ -72,7 +72,7 @@ public class MyHashMap <K,V>{
             }
             Node<K,V> temp = array[i];
             while(temp != null && temp.next != null){
-                if(temp.next.key == key){
+                if(temp.next.key.equals(key)){
                     temp = temp.next;
                     return temp.value;
                 }
@@ -108,4 +108,6 @@ class Node <K,V>{
     public int hashCode(){
         return Objects.hash(key);
     }
+
+   
 }
