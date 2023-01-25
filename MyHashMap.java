@@ -1,5 +1,6 @@
 package Task09;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class MyHashMap <K,V>{
@@ -36,6 +37,15 @@ public class MyHashMap <K,V>{
         }
     }
 
+    @Override
+    public String toString() {
+        return "MyHashMap{" +
+                "COMPASITY=" + COMPASITY +
+                ", array=" + Arrays.toString(array) +
+                ", size=" + size +
+                '}';
+    }
+
     public void clear(){
         array = (Node<K, V>[]) new Node[COMPASITY];
         size = 0;
@@ -65,49 +75,62 @@ public class MyHashMap <K,V>{
     private int hashCode(Object key){
         return key.hashCode();
     }
+
     public V get(K key) {
-        for(int i = 0; i < array.length; i++){
-            if(array[i] != null && array[i].key == key){
-                return array[i].value;
-            }
-            Node<K,V> temp = array[i];
-            while(temp != null && temp.next != null){
-                if(temp.next.key.equals(key)){
+        V result = null;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null && array[i].key.equals(key)) {
+                result = array[i].value;
+            } else {
+                Node<K, V> temp = array[i];
+                while (temp != null && temp.next != null) {
+                    if (temp.next.key.equals(key)) {
+                        temp = temp.next;
+                        result = temp.value;
+                    }
                     temp = temp.next;
-                    return temp.value;
                 }
-                temp = temp.next;
             }
         }
-        throw new NullPointerException("No such Key");
+        if (result == null){
+            throw new NullPointerException("no such element");
+        }
+        return result;
     }
-}
-class Node <K,V>{
+
+class Node <K,V> {
     private int hashPozition;
     K key;
     V value;
-    Node<K,V> next;
-    public Node(int hash,K key, V value){
+    Node<K, V> next;
+
+    public Node(int hash, K key, V value) {
         this.hashPozition = hash;
         this.key = key;
         this.value = value;
         this.next = null;
     }
-    public int getHash(){
+
+    public int getHash() {
         return hashPozition;
     }
-    @Override
-    public boolean equals(Object o){
-        if (this == o){return true;}
 
-        if(o == null || o.getClass() != getClass()) {return false;}
-        Node<K,V> node = (Node<K, V>) o;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || o.getClass() != getClass()) {
+            return false;
+        }
+        Node<K, V> node = (Node<K, V>) o;
         return Objects.equals(key, node.key);
     }
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return Objects.hash(key);
     }
+}
 
-   
 }
