@@ -35,7 +35,7 @@ public class HomeWorkTen {
             }
         }
         wordsTimes.entrySet().stream()
-                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
-                .forEach(System.out::println);
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed());
+        wordsTimes.forEach((k,v)-> System.out.println( k + " " + v));
     }
 }
