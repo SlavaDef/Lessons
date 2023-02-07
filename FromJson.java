@@ -14,12 +14,7 @@ public class FromJson {
         try (InputStream fis = new FileInputStream(file);
              Scanner scanner = new Scanner(fis);
              PrintWriter out = new PrintWriter(new FileWriter("user.json"))) {
-            String word = scanner.nextLine();
-            String[] words = word.split(" ");
-
-            String name = words[0];
-            String age = words[1];
-
+             scanner.nextLine();
             while (scanner.hasNext()) {
                 String wo = scanner.nextLine();
                 String[] wos = wo.split(" ");
@@ -30,5 +25,37 @@ public class FromJson {
             String json = gson.toJson(list);
             out.write(json);
         }
+    }
+}
+
+class User {
+
+    private String name;
+    private int age;
+
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "name is = " + name+ ", age is "+ age;
     }
 }
