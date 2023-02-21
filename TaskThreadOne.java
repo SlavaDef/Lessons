@@ -16,9 +16,11 @@ public class TaskThreadOne {
 
             while (running) {
                 try {
+
                     Thread.sleep(1000);
+
             long after = System.currentTimeMillis();
-                    System.out.println("Time pust from starting program = " + (after-before) + "milisec");
+                    System.out.println((after-before)/1000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -32,7 +34,7 @@ public class TaskThreadOne {
 
                 try {
                     Thread.sleep(5000);
-                    System.out.println("Pust 5 seconds ");
+                    System.out.println("5 seconds have passed! ");
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
