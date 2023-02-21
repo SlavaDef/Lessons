@@ -1,9 +1,6 @@
 package HomeWork11;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -26,7 +23,15 @@ public class HomeWork11Task1_5 {
                 .sorted(Collections.reverseOrder())
                 // .collect(Collectors.joining(",")); if we must return String
                 .collect(Collectors.toList());
+    }
+    // The thirt task
+    static String sortMassive(String[] words){
 
+        String res = Arrays.stream(words)
+                .flatMap(str -> Arrays.stream(str.split(", ")))
+                .sorted()
+                .collect(Collectors.joining(", "));
+        return res;
     }
     // The four task
     static List<Long> lineGenerator(long seed ,long a,long c, long m){
