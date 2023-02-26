@@ -1,6 +1,8 @@
 package HomeWork12;
 
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 import static java.lang.Thread.sleep;
@@ -11,12 +13,13 @@ public class FizzBazzDemo {
     public static BlockingQueue<String> queue = new LinkedBlockingQueue<>();
 
     public static void main(String[] args) {
-        threads();
 
+        new FizzBazzDemo().threads();
     }
+    public synchronized void threads() {
+        ExecutorService exService = Executors.newFixedThreadPool(5);
 
-    public static synchronized void threads() {
-        new Thread(() -> {
+        exService.submit(() -> {
 
             while (number.get() < n) {
                 if (number.get() % 3 == 0 && number.get() % 5 != 0) {
@@ -33,7 +36,7 @@ public class FizzBazzDemo {
             }
         });
 
-        new Thread(() -> {
+        exService.submit(() -> {
 
             while (number.get() < n) {
                 if (number.get() % 3 != 0 && number.get() % 5 == 0) {
@@ -50,7 +53,7 @@ public class FizzBazzDemo {
             }
         });
 
-        new Thread(() -> {
+        exService.submit(() -> {
 
             while (number.get() < n) {
                 if (number.get() % 3 == 0 && number.get() % 5 == 0) {
@@ -67,7 +70,7 @@ public class FizzBazzDemo {
             }
         });
 
-        new Thread(() -> {
+        exService.submit(() -> {
 
             while (number.get() < n) {
                 if (number.get() % 3 != 0 && number.get() % 5 != 0) {
@@ -84,11 +87,11 @@ public class FizzBazzDemo {
             }
         });
 
-        new Thread(() -> {
+        exService.submit(() -> {
 
             while (true) {
                 try {
-                    sleep(5000);
+                    sleep(2000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
