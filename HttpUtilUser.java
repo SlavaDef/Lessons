@@ -19,14 +19,13 @@ public class HttpUtilUser {
     private static final Gson GSON = new Gson();
 
     public static HttpResponse<String> getResponse(String url,String method,HttpRequest.BodyPublisher body) throws IOException,InterruptedException{
-        HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest
                 .newBuilder()
                 .uri(URI.create(url))
                 .header("Content-type", " application/json")
                 .method(method, body)
                 .build();
-        return client.send(request, HttpResponse.BodyHandlers.ofString());
+        return CLIENT.send(request, HttpResponse.BodyHandlers.ofString());
     }
 
 
@@ -105,9 +104,8 @@ public class HttpUtilUser {
         HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
         String url = String.format("https://jsonplaceholder.typicode.com/users/%s/todos",id);
         HttpResponse<String> response = getResponse(url,"GET",bodyPublisher);
-        Gson gson = new Gson();
         Type type = new TypeToken<ArrayList<UsersList>>() {}.getType();
-        List<UsersList> list = gson.fromJson(response.body(), type);
+        List<UsersList> list = GSON.fromJson(response.body(), type);
         for (UsersList user : list) {
             if (!user.isCompleted()){
                 System.out.println(user);
@@ -118,14 +116,13 @@ public class HttpUtilUser {
         HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
         String url = String.format("https://jsonplaceholder.typicode.com/users/%s/posts",id);
         HttpResponse<String> response = getResponse(url,"GET",bodyPublisher);
-        Gson gson = new Gson();
         Type type = new TypeToken<ArrayList<UserPosts>>() {}.getType();
-        List<UserPosts> list = gson.fromJson(response.body(), type);
+        List<UserPosts> list = GSON.fromJson(response.body(), type);
         int lastPost = list.get(list.size() - 1).getId();
         String line = String.format("https://jsonplaceholder.typicode.com/posts/%s/comments",lastPost);
         HttpResponse<String> allPosts = getResponse(line,"GET",bodyPublisher);
         System.out.println("response1.body() = " + allPosts.body());
-        gson.toJson(allPosts.body(), new FileWriter(String.format("user-%s-post-%s-comments.json",id,lastPost)));
+        GSON.toJson(allPosts.body(), new FileWriter(String.format("user-%s-post-%s-comments.json",id,lastPost)));
     }
 
 }
